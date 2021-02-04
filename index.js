@@ -1,4 +1,4 @@
-const { Client, RichEmbed } = require('discord.js');
+const { Client, MessageEmbed } = require('discord.js');
 const client = new Client();
 const fetch = require('node-fetch');
 
@@ -9,7 +9,7 @@ client.on('ready', () => {
 client.on('message', msg => {
   if (msg.content === '!duck') {
     fetch('https://api.random-d.uk/random').then((result) => {
-      const embed = new RichEmbed()
+      const embed = new MessageEmbed()
       .setTitle('A duck in JS for you!')
       .setAuthor(msg.author.username, msg.author.avatarURL)
       .setImage(result.body.url)
